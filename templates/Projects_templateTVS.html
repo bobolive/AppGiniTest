@@ -1,0 +1,17 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the  and  formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Projects_init() hook (in hooks/Projects.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Projects-Projects_name-<%%VALUE(id)%%>" class="Projects-Projects_name"><%%VALUE(Projects_name)%%></td>
+		<td id="Projects-Description-<%%VALUE(id)%%>" class="Projects-Description"><%%VALUE(Description)%%></td>
+		<td id="Projects-Category-<%%VALUE(id)%%>" class="Projects-Category"><%%VALUE(Category)%%></td>
+		<td id="Projects-ProjectTags-<%%VALUE(id)%%>" class="Projects-ProjectTags"><%%VALUE(ProjectTags)%%></td>
+		<td id="Projects-Image_1-<%%VALUE(id)%%>" class="Projects-Image_1"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(Image_1)%%>" data-lightbox="Projects-Image_1"><img src="thumbnail.php?i=<%%VALUE(Image_1)%%>&t=Projects&f=Image_1&v=tv" class="img-thumbnail"></a></td>
+		<td id="Projects-Image_Uploaded-<%%VALUE(id)%%>" class="Projects-Image_Uploaded"><a href="link.php?t=Projects&f=Image_Uploaded&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(Image_Uploaded)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-picture text-info"></i></a></td>
+		<td id="Projects-Geo_place-<%%VALUE(id)%%>" class="Projects-Geo_place"><%%VALUE(Geo_place)%%></td>
+		<script>$j(function() {
+			var e_Image_Uploaded = '<%%VALUE(Image_Uploaded)%%>'; if(e_Image_Uploaded == '' || e_Image_Uploaded == '&nbsp;') $j(/*<*/ '#Projects-Image_Uploaded-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>

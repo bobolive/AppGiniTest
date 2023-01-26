@@ -1,0 +1,85 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group Projects-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Project's name -->
+		<div class="form-group Projects-Projects_name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Project's name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Projects_name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Description -->
+		<div class="form-group Projects-Description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Category -->
+		<div class="form-group Projects-Category" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Category</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="Category<%%RND1%%>"><%%COMBOTEXT(Category)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: ProjectTags -->
+		<div class="form-group Projects-ProjectTags" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ProjectTags</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ProjectTags)%%></div>
+			</div>
+		</div>
+		<!-- Field: Image 1 -->
+		<div class="form-group Projects-Image_1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Image 1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><img id="Image_1Img" src="thumbnail.php?t=Projects&f=Image_1&i=<%%VALUE(Image_1)%%>&v=dv" class="img-thumbnail"></div>
+			</div>
+		</div>
+		<!-- Field: Image Uploaded -->
+		<div class="form-group Projects-Image_Uploaded" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Image Uploaded</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="Image_Uploaded-link" href="link.php?t=Projects&f=Image_Uploaded&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-picture" title="<%%VALUE(Image_Uploaded)%%>"></i></a><script>jQuery(function() { var e_Image_Uploaded = '<%%VALUE(Image_Uploaded)%%>'; if(e_Image_Uploaded == '' || e_Image_Uploaded == '&nbsp;' || e_Image_Uploaded == 'blank.gif') jQuery('#Image_Uploaded-link').hide(); });</script></div>
+			</div>
+		</div>
+		<!-- Field: Google place -->
+		<div class="form-group Projects-Geo_place" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Google place</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Geo_place)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
